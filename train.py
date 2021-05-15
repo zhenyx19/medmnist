@@ -194,8 +194,8 @@ def val(model, val_loader, device, val_auc_list, task, dir_path, epoch):
         'epoch': epoch,
     }
 
-    path = os.path.join(dir_path, 'ckpt_%d_auc_%.5f.pth' % (epoch, auc))
-    torch.save(state, path)
+    # path = os.path.join(dir_path, 'ckpt_%d_auc_%.5f.pth' % (epoch, auc))
+    # torch.save(state, path)
 
 
 def test(model, split, data_loader, device, flag, task, output_root=None):
