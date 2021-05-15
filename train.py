@@ -41,7 +41,7 @@ def main(flag, input_root, output_root, end_epoch, download):
     n_classes = len(info['label'])
 
     start_epoch = 0
-    lr = 0.00001
+    lr = 0.000001
     batch_size = 128
     val_auc_list = []
     dir_path = os.path.join(output_root, '%s_checkpoints' % (flag))
