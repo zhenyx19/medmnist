@@ -86,7 +86,7 @@ def main(flag, input_root, output_root, end_epoch, download):
     print('==> Building and training model...')
 
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-    model = ResNet18(in_channels=n_channels, num_classes=n_classes).to(device)
+    model = ResNet50(in_channels=n_channels, num_classes=n_classes).to(device)
 
     if task == "multi-label, binary-class":
         criterion = nn.BCEWithLogitsLoss()
