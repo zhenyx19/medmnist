@@ -41,7 +41,7 @@ def main(flag, input_root, output_root, end_epoch, download):
     n_classes = len(info['label'])
 
     start_epoch = 0
-    lr = 0.001
+    lr = 0.0001
     batch_size = 128
     val_auc_list = []
     dir_path = os.path.join(output_root, '%s_checkpoints' % (flag))
@@ -93,7 +93,7 @@ def main(flag, input_root, output_root, end_epoch, download):
     else:
         criterion = nn.CrossEntropyLoss()
 
-    optimizer = optim.SGD(model.parameters(), lr=lr, momentum=0.9)
+    optimizer = optim.Adam(model.parameters(), lr=lr, weight_decay = 0.01)
 
     for epoch in trange(start_epoch, end_epoch):
         train(model, optimizer, criterion, train_loader, device, task)
