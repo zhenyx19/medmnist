@@ -78,10 +78,13 @@ class ResNet(nn.Module):
         self.layer3 = self._make_layer(block, 256, num_blocks[2], stride=2)
         self.layer4 = self._make_layer(block, 512, num_blocks[3], stride=2)
         self.linear = nn.Sequential(nn.Dropout(p = 0.5),
-                                    nn.Linear(512 * block.expansion, 4096),
+                                    nn.Linear(512 * block.expansion, 10240),
                                     nn.ReLU(),
                                     nn.Dropout(p = 0.5),
-                                    nn.Linear(4096,num_classes)
+                                    nn.Linear(10240,1024),
+                                    nn.ReLU(),
+                                    nn.Dropout(p = 0.5),
+                                    nn.Linear(1024,num_classes)
                                    )
 
     def _make_layer(self, block, planes, num_blocks, stride):
