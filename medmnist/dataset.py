@@ -13,7 +13,7 @@ class MedMNIST(Dataset):
                  split='train',
                  transform=None,
                  target_transform=None,
-                 download=False):
+                 download=True):
         ''' dataset
         :param split: 'train', 'val' or 'test', select subset
         :param transform: data transformation
@@ -24,8 +24,8 @@ class MedMNIST(Dataset):
         self.info = INFO[self.flag]
         self.root = root
 
-        # if download:
-        #     self.download()
+        if download:
+            self.download()
 
         if not os.path.exists(
                 os.path.join(self.root, "{}.npz".format(self.flag))):
